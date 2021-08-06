@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import GameCard from './GameCard';
 
 const GamesterApp = () => {
   const [gameData, setGameData] = useState([
@@ -19,7 +20,7 @@ const GamesterApp = () => {
         }
       })
       .then((data) => {
-        console.log(data);
+        console.log(data.results);
         setGameData(data.results);
         return data;
       });
@@ -36,7 +37,15 @@ const GamesterApp = () => {
       <h1>Gamester</h1>
 
       {gameData.map((game, index) => {
-        return <p key={index}>{game.name}</p>;
+        return (
+          <GameCard
+            name={game.name}
+            image={game.background_image}
+            rating={game.rating}
+            metacritic={game.metacritic}
+            key={index}
+          />
+        );
       })}
     </main>
   );
