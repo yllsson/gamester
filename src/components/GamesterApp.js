@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import GameCard from './GameCard';
+import GameCard from '../components/GameCard';
 
 const GamesterApp = () => {
   const [gameData, setGameData] = useState([
