@@ -8,7 +8,7 @@ const fetchGames = (res) => {
       console.log('Error: ', error);
     } else {
       res.send({
-        games: body
+        body
       });
     }
   });
