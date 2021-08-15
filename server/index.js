@@ -4,8 +4,9 @@ const app = express();
 
 const fetchGames = require('./utils/fetchGames');
 
-app.get('/games', (req, res) => {
-  fetchGames(res);
+app.get('/games', async (req, res) => {
+  const result = await fetchGames();
+  res.send(result);
 });
 
 app.listen(PORT, () => {
