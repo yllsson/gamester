@@ -1,34 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import GameCard from '../components/GameCard';
 
-const GamesterApp = () => {
-  const [gameData, setGameData] = useState(null);
+function GamesterApp() {
+  const [gameData, setGameData] = useState('');
 
-  const fetchGames = () => {
-    fetch(`/games`)
-      .then((res) => {
-        if (!res.ok) {
-          console.log('Unable to fetch data');
-        } else {
-          return res.json();
-        }
-      })
-      .then((data) => {
-        console.log(data);
-        setGameData(data);
-      });
+  const fetchGames = async () => {
+    const res = await fetch('/games');
+    const data = await res.json();
+
+    setGameData(data.results);
   };
 
   useEffect(() => {
     fetchGames();
-    console.log(gameData);
   }, []);
 
   return (
     <main>
       <h1>Gamester</h1>
       {!gameData ? (
-        <h2>loading...</h2>
+        <h2>Loading...</h2>
       ) : (
         gameData.map((game, index) => {
           return (
@@ -44,6 +35,6 @@ const GamesterApp = () => {
       )}
     </main>
   );
-};
+}
 
 export default GamesterApp;
