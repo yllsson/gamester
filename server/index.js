@@ -6,7 +6,10 @@ const fetchGames = require('./utils/fetchGames');
 
 app.get('/games', async (req, res) => {
   const result = await fetchGames();
-  res.send(result);
+  console.log(result);
+  res.send({
+    result
+  });
 });
 
 app.listen(PORT, () => {

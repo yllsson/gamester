@@ -4,15 +4,20 @@ import GameCard from '../components/GameCard';
 function GamesterApp() {
   const [gameData, setGameData] = useState('');
 
-  const fetchGames = async () => {
+  const fetchGameData = async () => {
     const res = await fetch('/games');
-    const data = await res.json();
+    if (!res.ok) {
+      console.log('Unable to fetch data. Error:', res.status, res.statusText);
+    } else {
+      const data = await res.json();
+      console.log(data);
 
-    setGameData(data.results);
+      setGameData(data.result);
+    }
   };
 
   useEffect(() => {
-    fetchGames();
+    fetchGameData();
   }, []);
 
   return (
