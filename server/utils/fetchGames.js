@@ -9,7 +9,7 @@ const fetchGames = async function () {
         console.log('Error: ', error);
         reject(error);
       } else {
-        resolve(body.results);
+        resolve(body);
       }
     });
   });
