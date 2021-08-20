@@ -16,10 +16,17 @@ function GamesterApp() {
       console.log('Unable to fetch data. Error:', res.status, res.statusText);
     } else {
       const data = await res.json();
-      console.log(data);
 
       setGameData(data.results);
     }
+  };
+
+  const getSearchGames = async (searchText) => {
+    const res = await fetch(
+      `https://api.rawg.io/api/games?key=14431a81669b494494dfb2bdf2b8e72a&platforms=1,2,3,4,7,18,186,18&search=${searchText}`
+    );
+    const data = await res.json();
+    setGameData(data.results);
   };
 
   useEffect(() => {
@@ -30,7 +37,7 @@ function GamesterApp() {
     <main>
       <h1>Gamester</h1>
 
-      <SearchBar />
+      <SearchBar getSearchGames={getSearchGames} />
 
       {!gameData ? (
         <h2>Loading...</h2>
