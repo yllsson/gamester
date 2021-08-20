@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import GameCard from '../components/GameCard';
+import SearchBar from './SearchBar';
 
 function GamesterApp() {
   const [gameData, setGameData] = useState('');
@@ -28,6 +29,9 @@ function GamesterApp() {
   return (
     <main>
       <h1>Gamester</h1>
+
+      <SearchBar />
+
       {!gameData ? (
         <h2>Loading...</h2>
       ) : (
