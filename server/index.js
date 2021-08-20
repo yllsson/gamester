@@ -1,13 +1,11 @@
 const express = require('express');
-// const PORT = process.env.PORT || 3000;
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 const fetchGames = require('./utils/fetchGames');
 
 app.get('/games', async (req, res) => {
   const result = await fetchGames();
-  console.log(req.headers);
   res.send({
     result
   });

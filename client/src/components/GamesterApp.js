@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import GameCard from '../components/GameCard';
 import SearchBar from './SearchBar';
 
-function GamesterApp() {
+const GamesterApp = () => {
   const [gameData, setGameData] = useState('');
 
   const fetchGameData = async () => {
@@ -56,6 +56,6 @@ function GamesterApp() {
       )}
     </main>
   );
-}
+};
 
 export default GamesterApp;

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GamesterApp from './components/GamesterApp';
+import AppRouter from './routers/AppRouter';
 import './styles/styles.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GamesterApp />
+    <AppRouter />
   </React.StrictMode>,
   document.getElementById('root')
 );
