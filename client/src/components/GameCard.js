@@ -5,7 +5,17 @@ const GameCard = ({ name, image, rating, metacritic }) => {
   return (
     <div>
       <h2>
-        <Link to={`/details/${name}`}>{name}</Link>
+        <Link
+          to={{
+            pathname: `/details/${name}`,
+            state: {
+              name,
+              image
+            }
+          }}
+        >
+          {name}
+        </Link>
       </h2>
       <img src={image} width='200px' />
       <p>Rating: {rating}</p>
