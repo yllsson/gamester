@@ -7,24 +7,23 @@ const GamesterApp = () => {
 
   const fetchGameData = async () => {
     // saving this until I've figured out what's causing my backend connection issues
-    // const res = await fetch('/games');
+    const res = await fetch('/games');
 
-    const res = await fetch(
-      `https://api.rawg.io/api/games?key=14431a81669b494494dfb2bdf2b8e72a&page-size=3&platforms=1,2,3,4,7,18,186,187&ordering=-added&dates=2021-01-01,2021-10-01`
-    );
+    // const res = await fetch(
+    //   `https://api.rawg.io/api/games?key=14431a81669b494494dfb2bdf2b8e72a&page-size=3&platforms=1,2,3,4,7,18,186,187&ordering=-added&dates=2021-01-01,2021-10-01`
+    // );
     if (!res.ok) {
       console.log('Unable to fetch data. Error:', res.status, res.statusText);
     } else {
       const data = await res.json();
 
-      setGameData(data.results);
+      setGameData(data.games);
     }
   };
 
   const getSearchGames = async (searchText) => {
-    const res = await fetch(
-      `https://api.rawg.io/api/games?key=14431a81669b494494dfb2bdf2b8e72a&platforms=1,2,3,4,7,18,186,18&search=${searchText}`
-    );
+    // to be sorted next time (comment written 21/08)
+    const res = await fetch(`/games?search=${encodeURIComponent(searchText)}`);
     const data = await res.json();
     setGameData(data.results);
   };
