@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const GameCard = ({ name, image, rating, metacritic }) => {
   return (
-    <div>
+    <div className='gameCard'>
       <h2>
         <Link
           to={{
@@ -17,7 +17,7 @@ const GameCard = ({ name, image, rating, metacritic }) => {
           {name}
         </Link>
       </h2>
-      <img src={image} width='200px' />
+      <img src={image} />
       <p>Rating: {rating}</p>
       <p>Metacritic: {metacritic ? metacritic : 'Not available'}</p>
     </div>
