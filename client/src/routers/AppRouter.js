@@ -1,14 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import GamesterApp from '../components/GamesterApp';
+import GamesterDashboard from '../components/GamesterDashboard';
 import GameDetailsPage from '../components/GameDetailsPage';
+import Header from '../components/Header';
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Switch>
         <Route path='/details/:name' component={GameDetailsPage} />
-        <Route path='/' component={GamesterApp} />
+        <Route path='/' component={GamesterDashboard} />
       </Switch>
     </BrowserRouter>
   );
