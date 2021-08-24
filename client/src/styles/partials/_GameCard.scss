@@ -1,7 +1,7 @@
 .gameCard {
   @include flex(column);
   align-items: flex-start;
-  margin: 2rem;
+  margin: $medium-margin;
   width: 30rem;
 }
 

@@ -1,0 +1,16 @@
+.searchBar {
+  margin: 4rem 0 $medium-margin 0;
+}
+
+.searchBar input {
+  height: 5rem;
+  width: 25rem;
+}
+
+.searchBar button {
+  height: 5rem;
+  width: 5rem;
+  background-color: $header-color;
+  color: $header-text-color;
+  border: none;
+}

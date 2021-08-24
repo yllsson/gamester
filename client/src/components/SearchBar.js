@@ -3,6 +3,7 @@ import React from 'react';
 function SearchBar({ getSearchGames }) {
   return (
     <form
+      className='searchBar'
       onSubmit={(e) => {
         e.preventDefault();
         getSearchGames(e.target.searchInput.value);
