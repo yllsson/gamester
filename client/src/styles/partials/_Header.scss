@@ -1,0 +1,18 @@
+header {
+  @include flex(row);
+  justify-content: space-between;
+  padding: 3rem 4rem;
+
+  background-color: #3e283a;
+  color: darken(#fff, 10%);
+}
+
+h1 {
+  font-size: 3.6rem;
+}
+
+header a {
+  color: darken(#fff, 10%);
+  margin-left: 2rem;
+  font-size: 2rem;
+}
