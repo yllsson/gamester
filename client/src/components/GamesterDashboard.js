@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import GameCard from '../components/GameCard';
+import GameCard from './GameCard';
+import Header from './Header';
 import SearchBar from './SearchBar';
 
-const GamesterApp = () => {
+const GamesterDashboard = () => {
   const [gameData, setGameData] = useState('');
 
   const fetchGameData = async () => {
@@ -34,8 +35,6 @@ const GamesterApp = () => {
 
   return (
     <main>
-      <h1>Gamester</h1>
-
       <SearchBar getSearchGames={getSearchGames} />
 
       {!gameData ? (
@@ -57,4 +56,4 @@ const GamesterApp = () => {
   );
 };
 
-export default GamesterApp;
+export default GamesterDashboard;
