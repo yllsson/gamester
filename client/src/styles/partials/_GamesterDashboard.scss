@@ -1,0 +1,9 @@
+main {
+  @include flex(column);
+}
+
+.featuredGames {
+  @include flex(row);
+  flex-wrap: wrap;
+  width: 80%;
+}

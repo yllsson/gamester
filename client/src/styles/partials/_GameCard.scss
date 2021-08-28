@@ -2,7 +2,8 @@
   @include flex(column);
   align-items: flex-start;
   margin: $medium-margin;
-  width: 30rem;
+  padding: 2rem;
+  width: 40rem;
 }
 
 .gameCard img {

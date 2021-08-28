@@ -42,21 +42,23 @@ const GamesterDashboard = () => {
 
       {error ? <h2>{error}</h2> : ''}
 
-      {!gameData ? (
-        <h2>Loading...</h2>
-      ) : (
-        gameData.map((game, index) => {
-          return (
-            <GameCard
-              name={game.name}
-              image={game.background_image}
-              rating={game.rating}
-              metacritic={game.metacritic}
-              key={index}
-            />
-          );
-        })
-      )}
+      <div className='featuredGames'>
+        {!gameData ? (
+          <h2>Loading...</h2>
+        ) : (
+          gameData.map((game, index) => {
+            return (
+              <GameCard
+                name={game.name}
+                image={game.background_image}
+                rating={game.rating}
+                metacritic={game.metacritic}
+                key={index}
+              />
+            );
+          })
+        )}
+      </div>
     </main>
   );
 };

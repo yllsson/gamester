@@ -1,8 +1,9 @@
 @import './base/settings';
 @import './base/mixins';
 @import './partials/Header';
-@import './partials/GameCard';
 @import './partials/SearchBar';
+@import './partials/GamesterDashboard';
+@import './partials/GameCard';
 
 * {
   box-sizing: border-box;
@@ -23,10 +24,6 @@ body {
 
 #root {
   width: 100%;
-}
-
-main {
-  @include flex(column);
 }
 
 a {
