@@ -1,11 +1,14 @@
 const request = require('postman-request');
 const apiKey = process.env.RAWG_API_KEY;
 
-const fetchGames = async function () {
-  const url = `https://api.rawg.io/api/games?key=${apiKey}&page-size=3&platforms=1,2,3,4,7,18,186,187&ordering=-added&dates=2021-01-01,2021-10-01`;
+const fetchGames = async function (searchText) {
+  let url = `https://api.rawg.io/api/games?key=${apiKey}&platforms=1,2,3,4,7,18,186,187&ordering=-added`;
 
-  //  To be used when I create a solution for search
-  //  const searchurl = `https://api.rawg.io/api/games?key=${apiKey}&platforms=1,2,3,4,7,18,186,18&search=${searchText}`
+  if (searchText) {
+    url += `&search=${searchText}`;
+  } else {
+    url += `&dates=2021-01-01,2021-10-01`;
+  }
 
   return new Promise((resolve, reject) => {
     request({ url, json: true }, (error, { body }) => {

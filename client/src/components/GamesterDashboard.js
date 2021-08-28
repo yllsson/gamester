@@ -5,14 +5,11 @@ import SearchBar from './SearchBar';
 
 const GamesterDashboard = () => {
   const [gameData, setGameData] = useState('');
+  const [error, setError] = useState('');
 
   const fetchGameData = async () => {
-    // saving this until I've figured out what's causing my backend connection issues
     const res = await fetch('/games');
 
-    // const res = await fetch(
-    //   `https://api.rawg.io/api/games?key=14431a81669b494494dfb2bdf2b8e72a&page-size=3&platforms=1,2,3,4,7,18,186,187&ordering=-added&dates=2021-01-01,2021-10-01`
-    // );
     if (!res.ok) {
       console.log('Unable to fetch data. Error:', res.status, res.statusText);
     } else {
@@ -23,10 +20,16 @@ const GamesterDashboard = () => {
   };
 
   const getSearchGames = async (searchText) => {
-    // to be sorted next time (comment written 21/08)
-    const res = await fetch(`/games?search=${encodeURIComponent(searchText)}`);
+    const res = await fetch(
+      `/games/search?search=${encodeURIComponent(searchText)}`
+    );
     const data = await res.json();
-    setGameData(data.results);
+    if (data.error) {
+      return setError(data.error);
+    } else {
+      setError('');
+    }
+    setGameData(data.games);
   };
 
   useEffect(() => {
@@ -36,6 +39,8 @@ const GamesterDashboard = () => {
   return (
     <main>
       <SearchBar getSearchGames={getSearchGames} />
+
+      {error ? <h2>{error}</h2> : ''}
 
       {!gameData ? (
         <h2>Loading...</h2>

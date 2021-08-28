@@ -12,6 +12,19 @@ app.get('/games', async (req, res) => {
   });
 });
 
+app.get('/games/search', async (req, res) => {
+  if (!req.query.search) {
+    return res.send({
+      error: 'Please enter game!'
+    });
+  }
+
+  const result = await fetchGames(req.query.search);
+  res.send({
+    games: result.results
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
 });
