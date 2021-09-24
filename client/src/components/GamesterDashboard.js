@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import FeaturedList from './FeaturedList';
 import GameCard from './GameCard';
-import Header from './Header';
 import SearchBar from './SearchBar';
 
 const GamesterDashboard = () => {
@@ -40,25 +40,29 @@ const GamesterDashboard = () => {
     <main>
       <SearchBar getSearchGames={getSearchGames} />
 
-      {error ? <h2>{error}</h2> : ''}
+      <section className='featuredContainer' >
+        <div className='featuredGames'>
+          {error ? <h2>{error}</h2> : ''}
+          {!gameData ? (
+            <h2>Loading...</h2>
+            ) : (
+              gameData.map((game, index) => {
+                return (
+                  <GameCard
+                  name={game.name}
+                  image={game.background_image}
+                  rating={game.rating}
+                  metacritic={game.metacritic}
+                  key={index}
+                  />
+                  );
+                })
+                )}
+        </div>
+  
+        <FeaturedList />
+      </section>
 
-      <div className='featuredGames'>
-        {!gameData ? (
-          <h2>Loading...</h2>
-        ) : (
-          gameData.map((game, index) => {
-            return (
-              <GameCard
-                name={game.name}
-                image={game.background_image}
-                rating={game.rating}
-                metacritic={game.metacritic}
-                key={index}
-              />
-            );
-          })
-        )}
-      </div>
     </main>
   );
 };

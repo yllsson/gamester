@@ -1,36 +1,8 @@
 @import './base/settings';
 @import './base/mixins';
+@import './base/general';
 @import './partials/Header';
 @import './partials/SearchBar';
 @import './partials/GamesterDashboard';
 @import './partials/GameCard';
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
-  font-family: Arial, Helvetica, sans-serif;
-  color: $dev-text-color;
-  background-color: $dev-bg-color;
-}
-
-#root {
-  width: 100%;
-}
-
-a {
-  text-decoration: none;
-  color: $dev-text-color;
-}
-
-a:hover {
-  color: lighten($dev-text-color, 20%);
-}

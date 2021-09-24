@@ -1,9 +1,26 @@
 main {
   @include flex(column);
+  align-items: flex-start;
+}
+
+.featuredContainer {
+  @include flex(row);
+  justify-content: space-evenly;
+  align-items: flex-start;
+
 }
 
 .featuredGames {
   @include flex(row);
   flex-wrap: wrap;
-  width: 80%;
+  width: 70%;
+}
+
+
+.featuredList {
+  @include flex(column);
+  background-color: #fff;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: $m-size;
 }
