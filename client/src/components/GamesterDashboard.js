@@ -6,6 +6,7 @@ import SearchBar from './SearchBar';
 const GamesterDashboard = () => {
   const [gameData, setGameData] = useState('');
   const [error, setError] = useState('');
+  const [featuredListData, setFeaturedListData] = useState([]);
 
   const fetchGameData = async () => {
     const res = await fetch('/games');
@@ -49,18 +50,20 @@ const GamesterDashboard = () => {
             gameData.map((game, index) => {
               return (
                 <GameCard
-                  name={game.name}
                   image={game.background_image}
-                  rating={game.rating}
                   metacritic={game.metacritic}
+                  name={game.name}
                   key={index}
+                  featuredListData={featuredListData}
+                  setFeaturedListData={setFeaturedListData}
+                  rating={game.rating}
                 />
               );
             })
           )}
         </div>
 
-        <FeaturedList />
+        <FeaturedList featuredListData={featuredListData} />
       </section>
     </main>
   );

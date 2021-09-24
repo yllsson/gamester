@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const GameCard = ({ name, image, rating, metacritic }) => {
+const GameCard = ({
+  name,
+  image,
+  rating,
+  metacritic,
+  featuredListData,
+  setFeaturedListData
+}) => {
   return (
     <div className='gameCard'>
       <h2>
@@ -18,10 +25,15 @@ const GameCard = ({ name, image, rating, metacritic }) => {
         </Link>
       </h2>
       <img src={image} />
-      <p>Rating: {rating}</p>
-      <p>Metacritic: {metacritic ? metacritic : 'Not available'}</p>
-      <button>Add to list</button>
-      
+      {/* <p>Rating: {rating}</p> */}
+      {/* <p>Metacritic: {metacritic ? metacritic : 'Not available'}</p> */}
+      <button
+        onClick={() => {
+          setFeaturedListData([...featuredListData, { name }]);
+        }}
+      >
+        Add to list
+      </button>
     </div>
   );
 };
