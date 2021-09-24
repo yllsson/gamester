@@ -20,6 +20,8 @@ const GameCard = ({ name, image, rating, metacritic }) => {
       <img src={image} />
       <p>Rating: {rating}</p>
       <p>Metacritic: {metacritic ? metacritic : 'Not available'}</p>
+      <button>Add to list</button>
+      
     </div>
   );
 };

@@ -1,15 +1,23 @@
 .gameCard {
   @include flex(column);
   align-items: flex-start;
-  margin: $medium-margin;
-  padding: 2rem;
-  width: 40rem;
-}
-
-.gameCard img {
-  width: 30rem;
+  background-color: #fff;
+  border: 1px solid #333;
+  border-radius: 10px;
+  margin: $sm-size;
+  padding: $m-size;
+  width: 23%; 
 }
 
 .gameCard * {
   margin: 0.5rem 0;
+}
+
+.gameCard img {
+  width: 100%;
+}
+
+.gameCard button {
+  align-self: flex-end;
+  padding: $sm-size $m-size;
 }

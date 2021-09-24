@@ -4,10 +4,11 @@ const apiKey = process.env.RAWG_API_KEY;
 const fetchGames = async function (searchText) {
   let url = `https://api.rawg.io/api/games?key=${apiKey}&platforms=1,2,3,4,7,18,186,187&ordering=-added&pages=13`;
 
+  
   if (searchText) {
     url += `&search=${searchText}`;
   } else {
-    url += `&dates=2021-01-01,2022-01-01`;
+    url += `&dates=2021-01-01,2023-01-01`;
   }
 
   return new Promise((resolve, reject) => {
